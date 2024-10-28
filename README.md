@@ -1,0 +1,1 @@
+Attempt to recreate a sand game based on cellular automation in C++ using raylib.
