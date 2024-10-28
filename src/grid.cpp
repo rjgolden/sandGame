@@ -54,7 +54,7 @@ void Grid::handleMouseInput(){
         int i = mouseY / cellHeight;
         
         if (i >= 0 && i < this->m_rows && j >= 0 && j < this->m_cols) {
-            DrawRectangle(j * cellWidth, i * cellHeight, cellWidth, cellHeight, BLACK);
+            DrawRectangle(j * cellWidth, i * cellHeight, cellWidth, cellHeight, RED);
             this->gridArray[i][j] = 1;
         }
     }
