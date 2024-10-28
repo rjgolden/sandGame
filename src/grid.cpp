@@ -13,8 +13,8 @@ Grid::Grid(int screenWidth, int screenHeight){
 
 // draws grid to screen
 void Grid::drawGrid(){
-    int cellWidth = 2; // Each cell is 20 pixels wide
-    int cellHeight = 2; // Each cell is 20 pixels tall
+    int cellWidth = 2; // Each cell is 2 pixels wide
+    int cellHeight = 2; // Each cell is 2 pixels tall
 
     for(int i = 0; i < this->m_rows; i++){
         for(int j = 0; j < this->m_cols; j++){
@@ -22,13 +22,9 @@ void Grid::drawGrid(){
             // Draw rectangles for each value in array, black if 1, white if 0
             DrawRectangle(j * cellWidth, i * cellHeight, cellWidth, cellHeight, this->gridArray[i][j] ? BLACK : WHITE);
 
-            // Extra format to get text into DrawText function
-            //std::string text = TextFormat("%d", this->gridArray[i][j]);
-            //DrawText(text.c_str(), (j * cellWidth) + 7, (i * cellHeight) + 7, 20, LIGHTGRAY);
         }
     }
 }
-
 
 // makes 1s 'fall' to bottom of grid
 void Grid::nextIteration(){
@@ -59,7 +55,6 @@ void Grid::handleMouseInput(){
         
         if (i >= 0 && i < this->m_rows && j >= 0 && j < this->m_cols) {
             DrawRectangle(j * cellWidth, i * cellHeight, cellWidth, cellHeight, BLACK);
-            //DrawText("1", (j * cellWidth) + 7, (i * cellHeight) + 7, 20, LIGHTGRAY);
             this->gridArray[i][j] = 1;
         }
     }
@@ -76,16 +71,3 @@ void Grid::clearGrid(){
         }
     }
 }
-
-// prints current grid to console
-/*
-#include <iostream
-void Grid::printGrid(){
-    for(int i = 0; i < this->m_rows; i++){
-        for(int j = 0; j < this->m_cols; j++){
-            std::cout << this->gridArray[i][j] << " ";
-        }
-        std::cout << "\n";
-    }
-}
-*/
